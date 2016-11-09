@@ -16,7 +16,7 @@ import Login from './login';
 
 import styles from '../styles/common-styles.js';
 
-import logout from '../service/logout.js'
+import util from '../util/utils.js'
 
 import app from '../config/config.js' 
 
@@ -46,7 +46,7 @@ export default class account extends Component {
   render(){
     return (
       <View style={styles.container}>
-        <Header text="Account" loaded={this.state.loaded} />  
+        <Header text="Caretaker Account" loaded={this.state.loaded} />
         <View style={styles.body}>
         {
           this.state.user &&
@@ -60,7 +60,7 @@ export default class account extends Component {
               />
               <Button
                   text="Logout"
-                 onpress={logout.bind(this)}
+                 onpress={util.logout.bind(this)}
                   button_styles={styles.primary_button}
                   button_text_styles={styles.primary_button_text} />
             </View>

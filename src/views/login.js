@@ -13,11 +13,14 @@ import Button from '../components/button';
 import Header from '../components/header';
 
 import Signup from './signup';
-import Account from './account';
+import AsdAccount from './asdAccount';
+import CaretakerAccount from './caretakerAccount';
 
 import app from '../config/config.js' 
 
 import styles from '../styles/common-styles.js';
+
+import util from '../util/utils.js';
 
 export default class login extends Component {
 
@@ -74,13 +77,20 @@ export default class login extends Component {
     var self = this;
     app.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then(
       function(result) {
-		  self.setState({
-			loaded: true
-           });
-		   AsyncStorage.setItem('user_data', JSON.stringify(result));
-           self.props.navigator.push({
-             component: Account
-           });
+
+          var ref = app.database().ref("autistica/users").child(util.escapeEmailAddress(self.state.email));
+          ref.once('value')
+            .then(function(data) {
+              var type = data.val().type;
+              var component = type === 'asd' ? AsdAccount : CaretakerAccount;
+              self.setState({
+                loaded: true
+              });
+              AsyncStorage.setItem('user_data', JSON.stringify(result));
+              self.props.navigator.push({
+                component: component
+              });
+            });
 	  },
 	  function(error) {
 		  self.setState({

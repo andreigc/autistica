@@ -16,7 +16,6 @@ import {
 
 
 import Signup from './src/views/signup';
-import Account from './src/views/account';
 import Login from './src/views/login'
 import Header from './src/components/header';
 import app from './src/config/config.js'

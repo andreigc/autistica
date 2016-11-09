@@ -17,6 +17,8 @@ import styles from '../styles/common-styles.js';
 
 import app from '../config/config.js'
 
+import util from '../util/utils.js'
+
 export default class signup extends Component {
 
     constructor(props) {
@@ -31,15 +33,10 @@ export default class signup extends Component {
 
     }
 
-    escapeEmailAddress(email) {
-        if (!email) return false;
-        email = email.toLowerCase();
-        email = email.replace(/\./g, ',');
-        return email;
-    }
+
 
     completeSignup() {
-        var userRef = app.database().ref('autistica/users').child(this.escapeEmailAddress(this.state.email));
+        var userRef = app.database().ref('autistica/users').child(util.escapeEmailAddress(this.state.email));
         userRef.set({email: this.state.email, type: this.state.type});
     }
 
