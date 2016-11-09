@@ -115,7 +115,7 @@ export default class signup extends Component {
             button_text_styles={styles.primary_button_text} />
 
           <Button
-            text="Got an Account?"
+            text="Already have an account?"
             onpress={this.goToLogin.bind(this)}
             button_styles={styles.transparent_button}
             button_text_styles={styles.transparent_button_text} />

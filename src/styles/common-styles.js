@@ -27,9 +27,12 @@ module.exports = StyleSheet.create({
     fontSize: 16
   },
   primary_button: {
-    margin: 10,
-    padding: 15,
-    backgroundColor: '#529ecc'
+    backgroundColor: '#529ecc',
+    width: 150,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10
   },
   primary_button_text: {
     color: '#FFF',
