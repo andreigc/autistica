@@ -3,7 +3,8 @@ import  {
   AppRegistry,
   Text,
   TextInput,
-  View
+  View,
+  Picker,
 } from 'react-native';
 import React, { Component } from 'react';
 
@@ -99,8 +100,16 @@ export default class signup extends Component {
             secureTextEntry={true}
             placeholder={"Password"}
           />
+            <Picker
+                style={styles.picker}
+                selectedValue={this.state.type}
+                onValueChange={(value) => this.setState({"type":value})}
+            >
+                <Picker.Item label="Need Help" value="asd" />
+                <Picker.Item label="Offer Help"  value="caretaker" />
+            </Picker>
           <Button
-            text="Signup"
+            text="Register"
             onpress={this.signup.bind(this)}
             button_styles={styles.primary_button}
             button_text_styles={styles.primary_button_text} />

@@ -16,8 +16,7 @@ module.exports = StyleSheet.create({
   textinput: {
     height: 40,
 	width: 200,
-    borderColor: 'red',
-    borderWidth: 1
+    borderWidth: 0
   },
   transparent_button: {
     marginTop: 10,
@@ -39,5 +38,8 @@ module.exports = StyleSheet.create({
   image: {
     width: 100,
     height: 100
-  }
+  },
+  picker: {
+    width: 200,
+  },
 });

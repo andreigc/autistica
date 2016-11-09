@@ -17,6 +17,7 @@ import {
 
 import Signup from './src/views/signup';
 import Account from './src/views/account';
+import Login from './src/views/login'
 import Header from './src/components/header';
 import app from './src/config/config.js'
 import styles from './src/styles/common-styles.js';
@@ -40,6 +41,7 @@ export default class Autistica extends Component {
             let component = {component: Signup};
 
             if (user_data != null) {
+                this.setState({component: Login});
                 // alert(user_data.refreshToken);
                 // app.auth().signInWithCustomToken(user_data.token).then(
                 //     function (result) {
