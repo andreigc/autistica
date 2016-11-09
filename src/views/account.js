@@ -16,6 +16,8 @@ import Login from './login';
 
 import styles from '../styles/common-styles.js';
 
+import logout from '../service/logout.js'
+
 import app from '../config/config.js' 
 
 export default class account extends Component {
@@ -42,7 +44,6 @@ export default class account extends Component {
   }
 
   render(){
-
     return (
       <View style={styles.container}>
         <Header text="Account" loaded={this.state.loaded} />  
@@ -59,7 +60,7 @@ export default class account extends Component {
               />
               <Button
                   text="Logout"
-                  onpress={this.logout.bind(this)}
+                 onpress={logout.bind(this)}
                   button_styles={styles.primary_button}
                   button_text_styles={styles.primary_button_text} />
             </View>
@@ -69,16 +70,7 @@ export default class account extends Component {
     );
   }
 
-  logout(){
 
-    AsyncStorage.removeItem('user_data').then(() => {    
-      app.auth().signOut();
-      this.props.navigator.push({
-        component: Login
-      });
-    });
-
-  }
 
 }
 
