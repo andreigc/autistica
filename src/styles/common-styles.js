@@ -51,7 +51,10 @@ module.exports = StyleSheet.create({
   email_text: {
     fontSize: 18
   },
-  userRow: {
+  asd_user_list_button_text: {
+    color: 'black'
+  },
+  asd_user_list_button: {
     height: 50
   }
 });

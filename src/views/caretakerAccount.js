@@ -21,7 +21,9 @@ import util from '../util/utils.js'
 
 import app from '../config/config.js'
 
-export default class account extends Component {
+import ManageAsdDashboard from './manageAsd.js'
+
+export default class caretaker_account extends Component {
 
     constructor(props) {
 
@@ -29,11 +31,9 @@ export default class account extends Component {
         this.state = {
             loaded: false,
         }
-
     }
 
     componentWillMount() {
-
         AsyncStorage.getItem('user_data').then((user_data_json) => {
             let user_data = JSON.parse(user_data_json);
             this.setState({
@@ -51,6 +51,13 @@ export default class account extends Component {
         });
     }
 
+    goToManageAsdScreen(email) {
+        AsyncStorage.setItem('current_managed_asd', email);
+        this.props.navigator.push({
+            component: ManageAsdDashboard,
+        });
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -59,9 +66,6 @@ export default class account extends Component {
                     {
                         this.state.user && this.state.userDetails &&
                         <View style={styles.body}>
-                            {/*<View style={styles.email_container}>*/}
-                                {/*<Text style={styles.email_text}>{this.state.user.email}</Text>*/}
-                            {/*</View>*/}
                             <Image
                                 style={styles.image}
                                 source={{uri: this.state.user.photoURL}}
@@ -69,7 +73,14 @@ export default class account extends Component {
 
                             <ListView
                                 dataSource={this.state.dataSource}
-                                renderRow={(rowData) => <Text style={styles.userRow}>{rowData}</Text>}
+                                renderRow={(rowData, sectionID, rowID) =>
+                                    <Button
+                                        text={rowData}
+                                        onpress={() => this.goToManageAsdScreen(rowData)}
+                                        button_styles={styles.asd_user_list_button}
+                                        button_text_styles={styles.asd_user_list_button_text}
+                                    />
+                                }
                             />
                             <Button
                                 text="Logout"
@@ -84,3 +95,5 @@ export default class account extends Component {
         );
     }
 }
+
+AppRegistry.registerComponent('caretaker_account', () => caretaker_account);

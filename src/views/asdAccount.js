@@ -20,7 +20,7 @@ import util from '../util/utils.js'
 
 import app from '../config/config.js' 
 
-export default class account extends Component {
+export default class asd_account extends Component {
 
   constructor(props){
 
@@ -73,3 +73,4 @@ export default class account extends Component {
 
 
 }
+AppRegistry.registerComponent('asd_account', () => asd_account);
