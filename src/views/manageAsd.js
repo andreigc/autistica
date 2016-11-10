@@ -6,7 +6,8 @@ import  {
     View,
     Image,
     AsyncStorage,
-    ListView
+    ListView,
+    TouchableHighlight
 } from 'react-native';
 import React, {Component} from 'react';
 
@@ -44,11 +45,67 @@ export default class manage_asd extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Header  text={this.state.managed_asd} loaded={this.state.loaded}/>
+                <Header text={this.state.managed_asd} loaded={this.state.loaded}/>
                 <View style={styles.body}>
+                    <TouchableHighlight underlayColor={"#E8E8E8"} style={dashStyles.activity}>
+                        <View>
+                            <Text style={dashStyles.buttonText}>Activity log</Text>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight underlayColor={"#E8E8E8"} style={dashStyles.statistics}>
+                        <View>
+                            <Text style={dashStyles.buttonText}>Statistics</Text>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight underlayColor={"#E8E8E8"} style={dashStyles.routines}>
+                        <View>
+                            <Text style={dashStyles.buttonText}>Routines</Text>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight underlayColor={"#E8E8E8"} style={dashStyles.reminders}>
+                        <View>
+                            <Text style={dashStyles.buttonText}>Reminders</Text>
+                        </View>
+                    </TouchableHighlight>
                 </View>
             </View>
         );
     }
 }
+
+const dashStyles = {
+    activity: {
+        backgroundColor: '#529ecc',
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        height: 70
+    },
+    statistics: {
+        backgroundColor: 'orange',
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        height: 70,
+        marginTop: 15
+    },
+    routines: {
+        backgroundColor: 'purple',
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        height: 70,
+        marginTop: 15
+    },
+    reminders: {
+        backgroundColor: 'green',
+        alignSelf: 'stretch',
+        justifyContent: 'center',
+        height: 70,
+        marginTop: 15
+    },
+    buttonText: {
+        paddingLeft: 50,
+        fontSize: 18,
+        color: 'white'
+    }
+}
+
 AppRegistry.registerComponent('manage_asd', () => manage_asd);

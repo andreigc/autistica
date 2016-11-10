@@ -32,7 +32,6 @@ export default class header extends Component {
 const styles = StyleSheet.create({
   header: {
     padding: 10,
-    flexDirection: 'column',
     alignItems: 'center',
     marginBottom: 20,
     flex: 1,

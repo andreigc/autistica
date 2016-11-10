@@ -52,7 +52,8 @@ module.exports = StyleSheet.create({
     fontSize: 18
   },
   asd_user_list_button_text: {
-    color: 'black'
+    color: 'black',
+    fontSize: 18
   },
   asd_user_list_button: {
     height: 50
