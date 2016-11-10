@@ -51,8 +51,8 @@ export default class account extends Component {
         {
           this.state.user &&
             <View style={styles.body}>
-              <View style={page_styles.email_container}>
-                <Text style={page_styles.email_text}>{this.state.user.email}</Text>
+              <View style={styles.email_container}>
+                <Text style={styles.email_text}>{this.state.user.email}</Text>
               </View>
               <Image
                 style={styles.image}
@@ -73,12 +73,3 @@ export default class account extends Component {
 
 
 }
-
-const page_styles = StyleSheet.create({
-  email_container: {
-    padding: 20
-  },
-  email_text: {
-    fontSize: 18
-  }
-});

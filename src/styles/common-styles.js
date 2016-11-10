@@ -45,4 +45,13 @@ module.exports = StyleSheet.create({
   picker: {
     width: 200,
   },
+  email_container: {
+    padding: 20
+  },
+  email_text: {
+    fontSize: 18
+  },
+  userRow: {
+    height: 50
+  }
 });

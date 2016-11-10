@@ -87,6 +87,7 @@ export default class login extends Component {
                 loaded: true
               });
               AsyncStorage.setItem('user_data', JSON.stringify(result));
+              AsyncStorage.setItem('user_details', JSON.stringify(data.val()));
               self.props.navigator.push({
                 component: component
               });
